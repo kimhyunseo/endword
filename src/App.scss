@@ -4,97 +4,153 @@
 @import "./styles/mixin.scss";
 @import "./styles/reset.scss";
 
-body{
-  font-family: "Paperlogy", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;  
+@font-face {
+    font-family: 'MaplestoryOTFBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MaplestoryOTFLight';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+  font-family: 'MaplestoryOTFLight', sans-serif;
 }
 
 //body > #root
-#root{
+#root {
   height: 100vh;
-  background: linear-gradient(to bottom, #1e0a45, #0d0520);
   @include flex-center;
 }
 
 //body > #root > .app
-.app{
+.app {
   width: 100%;
   height: 100%;
   background-color: var(--main-color);
   color: var(--font-color);
   border-radius: 3rem;
-  @media screen and (min-width:768px) {
+  @media screen and (min-width: 768px) {
     width: 402px;
-    height: 80vh;    
+    height: 80vh;
   }
 }
 /**** start-screen ***/
-.start-screen{
+.start-screen {
   height: 100%;
   text-align: center;
-  @include flex-layout(column,space-around);
+  @include flex-layout(column, space-around);
   gap: 3rem;
-  h1{
-    font-size: 3rem;
+  background-color: #8ccfd7;
+  img {
+    width: 100%;
+    padding: 0 3rem;
   }
-  .input-form{
+  .pop {
+    margin: 0 auto;
+    text-align: center;
+    width: 80%;
+    p {
+      font-size: 1.5rem;
+      background-color: #fff9e4;
+      color: #837156;
+      padding: 1.8rem;
+      border-radius: 5px;
+      span {
+        color: #eb6661;
+        font-family: "MaplestoryOTFBold";
+      }
+    }
+    img{
+    margin-top: 1rem;
+    width: 80%;
+}
+  }
+  .input-form {
     @include flex-layout(column);
     gap: 0.7rem;
-    button{
+    button {
       @include round-button();
       font-size: 1.5rem;
+      background-color: #FEEC9E;
     }
-    input{
+    input {
       display: block;
       width: 100%;
       font-size: 1.5rem;
-      padding: 0.7rem;
+      padding: 0.7rem 1rem;
+      border-radius: 20px;
+      outline: none;
+      border: none;
+      &::placeholder{
+        font-size: 1rem;
+        font-family: 'MaplestoryOTFLight';
+      }
     }
   }
 }
 
 /**** Game Screen ****/
-.game-screen{  
+.game-screen {
   height: 100%;
   padding: 2rem;
   @include flex-layout(column);
   gap: 0.7rem;
-  .word-list{
+  .logo{
+    width: 150px;
+  }
+  .loading{
+    color: #8ccfd7;
+  }
+  .word-list {
     overflow: auto;
     padding: 1rem;
     flex: 1;
     width: 100%;
-    li{
+    li {
       margin: 0.3rem 0;
       @include flex-center;
       gap: 0.7rem;
       justify-content: flex-start;
-      &:nth-child(odd){        
+      &:nth-child(odd) {
       }
-      &:nth-child(even){
-        flex-direction: row-reverse;     
-        text-align: right;   
+      &:nth-child(even) {
+        flex-direction: row-reverse;
+        text-align: right;
       }
-      span:nth-child(1){        
+      span:nth-child(1) {
+        color: #8ccfd7;
       }
-      span:nth-child(2){
+      span:nth-child(2) {
         // border: 1px solid #eee;
         @include round-button();
         // width: auto;
         width: 30%;
+        background-color: #FEEC9E;
       }
     }
   }
-  .game-form{
+  .game-form {
     width: 100%;
-    @include flex-layout(row,flex-start,center);
-    gap: 0.7rem;    
-    input{      
+    @include flex-layout(row, flex-start, center);
+    gap: 0.7rem;
+    input {
       display: block;
-      flex: 1;
-      @include round-button();
+      width: 100%;
+      font-size: 1.5rem;
+      padding: 0.7rem;
+      border-radius: 20px;
+      border: none;
+      &::placeholder{
+        font-size: 1rem;
+        font-family: 'MaplestoryOTFLight';
+      }
     }
-    button{
+    button {
       @include round-button();
       width: 10%;
     }

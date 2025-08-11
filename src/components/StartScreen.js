@@ -12,15 +12,19 @@ const StartScreen = ({onStart}) => {
   }
   return (
     <div className="start-screen">
-      <h1>Hello<br/>I'AM 말잇쮸</h1>
+      <img src={`${process.env.PUBLIC_URL}/images/title.png`}/>
+      <div class="pop">
+        <p>저와 같이 <br/><span>끝말잇기</span>를 해봐요!</p>
+        <img src={`${process.env.PUBLIC_URL}/images/isa.png`} alt="여울"/>
+      </div>
       <form className="input-form" onSubmit={handleSubmit}>
-        <h2>시작 단어를 입력하세요</h2>
         <input 
           type="text"
           value={input}
+          placeholder="시작 단어를 입력해주세요"
           onChange={(e)=>{setInput(e.target.value)}}
         />
-        <button type="submit">Get Started</button>
+        <button type="submit">시작하기</button>
       </form>
     </div>
   );
